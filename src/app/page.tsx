@@ -18,6 +18,11 @@ export default function Home() {
     const email = String(formData.get("email") ?? "");
     const password = String(formData.get("password") ?? "");
 
+    if (!email.trim() || !password.trim()) {
+      setStatusMessage("Completa correo y contraseña para continuar.");
+      return;
+    }
+
     setIsLoading(true);
     setStatusMessage(null);
 
@@ -31,13 +36,21 @@ export default function Home() {
       });
 
       if (!response.ok) {
-        throw new Error("No se pudo iniciar sesión");
+        const responseMessage = (await response.text()).trim();
+        const statusDetail = responseMessage
+          ? ` ${response.status}: ${responseMessage}`
+          : ` ${response.status}`;
+
+        throw new Error(`No se pudo iniciar sesión.${statusDetail}`);
       }
 
       setStatusMessage("Inicio de sesión enviado correctamente.");
-    } catch {
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Error desconocido";
+
       setStatusMessage(
-        "Frontend listo: conecta este login con tu servicio de Python.",
+        `${errorMessage}. Si tu API Python aún no está activa, configura NEXT_PUBLIC_AUTH_API_URL.`,
       );
     } finally {
       setIsLoading(false);
