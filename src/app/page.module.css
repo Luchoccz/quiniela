@@ -1,0 +1,86 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(145deg, rgba(8, 21, 43, 0.8), rgba(0, 87, 184, 0.75)),
+    url("/worldcup-2026-bg.svg") center / cover no-repeat;
+}
+
+.card {
+  width: min(420px, 100%);
+  padding: 30px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.85rem;
+  color: #0b1f4b;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #2e466a;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+.label {
+  font-size: 0.92rem;
+  color: #19335b;
+}
+
+.input {
+  border: 1px solid #c5d4ec;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: 2px solid #0057b8;
+  outline-offset: 1px;
+}
+
+.button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #0057b8, #00a651);
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.hint {
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: #3a5175;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #0b1f4b;
+}
